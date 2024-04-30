@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"idiJakartaPusat/controller"
+
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -10,6 +12,7 @@ func indexRoute(c *fiber.Ctx) error {
 
 func SetupRoutePerson(app *fiber.App) {
 	app.Get("/", indexRoute)
+	app.Get("/person", controller.GetPerson)
 }
 
 func Setup() *fiber.App {
