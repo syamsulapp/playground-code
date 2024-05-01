@@ -12,7 +12,7 @@ func indexRoute(c *fiber.Ctx) error {
 
 func SetupRoutePerson(app *fiber.App) {
 	app.Get("/", indexRoute)
-	app.Get("/person", controller.GetPerson)
+	app.Get("/person", controller.GetPersonWithObjectStatic)
 }
 
 func Setup() *fiber.App {
