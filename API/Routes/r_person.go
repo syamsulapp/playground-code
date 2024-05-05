@@ -18,7 +18,7 @@ func SetupRoutePerson(app *fiber.App) {
 	routes := app.Group("/api")
 	routes.Get("/person/static", Controller.PersonWithObjectStatic)
 	routes.Get("/person/body", Controller.PersonWithObjectBody)
-	routes.Get("/person/query", Controller.PersonWithQueryParams)
+	routes.Get("/person/query", Controller.PersonWithObjectQuery)
 }
 
 func Setup() *fiber.App {

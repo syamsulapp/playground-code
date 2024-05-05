@@ -20,9 +20,13 @@ func GetPersonWithObjectStatic(c *fiber.Ctx) error {
 }
 
 func GetPersonWithObjectBody(c *fiber.Ctx) error {
-	return c.SendString("get person with object params")
+	return c.SendString("get person with object")
 }
 
-func GetPersonWithQueryParams(c *fiber.Ctx) error {
-	return c.SendString("get person with query params")
+func GetPersonWithObjectQuery(c *fiber.Ctx) error {
+	return c.SendString("get person with query")
+}
+
+func GetPersonWithObjectParams(c *fiber.Ctx) error {
+	return c.SendString("get person with params")
 }

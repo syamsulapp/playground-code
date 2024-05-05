@@ -14,6 +14,10 @@ func PersonWithObjectBody(c *fiber.Ctx) error {
 	return Repositories.GetPersonWithObjectBody(c)
 }
 
-func PersonWithQueryParams(c *fiber.Ctx) error {
-	return Repositories.GetPersonWithQueryParams(c)
+func PersonWithObjectQuery(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithObjectQuery(c)
+}
+
+func PersonWithObjectParams(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithObjectParams(c)
 }
