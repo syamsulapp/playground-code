@@ -12,9 +12,9 @@ type person struct {
 }
 
 type PersonWithBody struct {
+	Name     string `json:"name"`
 	Email    string `json:"email"`
 	Username string `json:"username"`
-	Password string `json:"password"`
 }
 
 type PersonWithQuery struct {
@@ -34,7 +34,7 @@ func GetPersonWithObjectStatic(c *fiber.Ctx) error {
 	return c.JSON(Person)
 }
 
-func GetPersonWithObjectBody(c *fiber.Ctx) error {
+func GetPersonWithBodyParams(c *fiber.Ctx) error {
 	personWithBody := new(PersonWithBody)
 
 	if err := c.BodyParser(personWithBody); err != nil {
@@ -44,11 +44,11 @@ func GetPersonWithObjectBody(c *fiber.Ctx) error {
 	return c.JSON(personWithBody)
 }
 
-func GetPersonWithObjectBodyAll(c *fiber.Ctx) error {
+func GetPersonWithBodyParamsAll(c *fiber.Ctx) error {
 	return c.Send(c.Body())
 }
 
-func GetPersonWithObjectQuery(c *fiber.Ctx) error {
+func GetPersonWithQueryParams(c *fiber.Ctx) error {
 	personWithQuery := new(PersonWithQuery)
 
 	if err := c.QueryParser(personWithQuery); err != nil {
@@ -58,7 +58,7 @@ func GetPersonWithObjectQuery(c *fiber.Ctx) error {
 	return c.JSON(personWithQuery)
 }
 
-func GetPersonWithObjectQueryByIndex(c *fiber.Ctx) error {
+func GetPersonWithQueryParamsByIndex(c *fiber.Ctx) error {
 	personWithQueryIndex := PersonWithQuery{
 		IPK:      c.Query("ipk"),
 		Fakultas: c.Query("fakultas"),
@@ -68,6 +68,11 @@ func GetPersonWithObjectQueryByIndex(c *fiber.Ctx) error {
 	return c.JSON(personWithQueryIndex)
 }
 
-func GetPersonWithObjectParams(c *fiber.Ctx) error {
-	return c.SendString("get person with params")
+func GetPersonWithRouteParams(c *fiber.Ctx) error {
+	personWithRouteParams := PersonWithBody{
+		Name:     c.Params("name"),
+		Email:    c.Params("email"),
+		Username: c.Params("username"),
+	}
+	return c.JSON(personWithRouteParams)
 }

@@ -10,22 +10,22 @@ func PersonWithObjectStatic(c *fiber.Ctx) error {
 	return Repositories.GetPersonWithObjectStatic(c)
 }
 
-func PersonWithObjectBody(c *fiber.Ctx) error {
-	return Repositories.GetPersonWithObjectBody(c)
+func PersonWithBodyParams(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithBodyParams(c)
 }
 
-func PersonWithObjectQuery(c *fiber.Ctx) error {
-	return Repositories.GetPersonWithObjectQuery(c)
+func PersonWithQueryParams(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithQueryParams(c)
 }
 
-func PersonWithObjectQueryByIndex(c *fiber.Ctx) error {
-	return Repositories.GetPersonWithObjectQueryByIndex(c)
+func PersonWithQueryParamsByIndex(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithQueryParamsByIndex(c)
 }
 
-func PersonWithObjectBodyAll(c *fiber.Ctx) error {
-	return Repositories.GetPersonWithObjectBodyAll(c)
+func PersonWithBodyParamsAll(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithBodyParamsAll(c)
 }
 
-func PersonWithObjectParams(c *fiber.Ctx) error {
-	return Repositories.GetPersonWithObjectParams(c)
+func PersonWithRouteParams(c *fiber.Ctx) error {
+	return Repositories.GetPersonWithRouteParams(c)
 }
