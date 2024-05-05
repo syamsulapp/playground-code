@@ -14,10 +14,11 @@ func indexRoute(c *fiber.Ctx) error {
 func SetupRoutePerson(app *fiber.App) {
 	app.Get("/", indexRoute)
 
-	v1 := app.Group("/api/v1")
-	v1.Get("/person/static", Controller.PersonWithObjectStatic)
-	v1.Get("/person/body", Controller.PersonWithObjectBody)
-	v1.Get("/person/query", Controller.PersonWithQueryParams)
+	//version app 1.0
+	routes := app.Group("/api")
+	routes.Get("/person/static", Controller.PersonWithObjectStatic)
+	routes.Get("/person/body", Controller.PersonWithObjectBody)
+	routes.Get("/person/query", Controller.PersonWithQueryParams)
 }
 
 func Setup() *fiber.App {
