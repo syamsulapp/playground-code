@@ -1,9 +1,9 @@
 package main
 
-import "idiJakartaPusat/routes"
+import "idiJakartaPusat/Routes"
 
 func main() {
-	app := routes.Setup()
+	app := Routes.Setup()
 
 	app.Listen(":8085")
 }
