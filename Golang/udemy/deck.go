@@ -27,3 +27,8 @@ func (d deck) print() {
 		fmt.Println(i,card)
 	}
 }
+
+//slice function
+func deal(d deck, handleSize int) (deck, deck) {
+	return d[:handleSize], d[handleSize:]
+}
