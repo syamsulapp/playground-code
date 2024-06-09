@@ -6,6 +6,7 @@ import "fmt"
 // which is a slice of strings
 type deck []string
 
+// function reciver
 func newDeck() deck {
 	cards := deck{}
 
