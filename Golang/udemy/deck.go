@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"io/ioutil"
 )
 
 // create a new type of 'deck'
@@ -39,4 +40,9 @@ func deal(d deck, handleSize int) (deck, deck) {
 //string joins
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
+}
+
+//save to file
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0755)
 }
