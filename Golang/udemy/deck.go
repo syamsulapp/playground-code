@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"io/ioutil"
+	"os"
 )
 
 // create a new type of 'deck'
@@ -45,4 +46,16 @@ func (d deck) toString() string {
 //save to file
 func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0755)
+}
+
+//read data from hard drive
+func newDeckFromFile(filename string) deck {
+	bs, err:= ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
+	ss := strings.Split(string(bs), ",") // ace of spades, tow of spades, three of spades,
+	return deck(ss)
 }
