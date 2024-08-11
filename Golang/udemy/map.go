@@ -13,7 +13,7 @@ func Mapping() {
 	// colors["white"] = "#ffffff"
 	// colors := make(map[int]string)
 	// colors[10] = "#ffffff"
-	// delete(colors, "black")
+	delete(colors, "red")
 	PrintMapColor(colors)
 }
 
