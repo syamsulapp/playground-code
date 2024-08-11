@@ -29,15 +29,18 @@ func main() {
 	// fmt.Printf("%+v", contact)
 
 	// (embedding struct)
-	Alex := Person{
-		FirstName: "alex",
-		LastName:  "anderson",
-		ContactInfo: ContactInfo{
-			Email:   "alex@gmail.com",
-			ZipCode: 93233,
-		},
-	}
-	Alex.ChangeName("alexander")
-	Alex.print()
+	// Alex := Person{
+	// 	FirstName: "alex",
+	// 	LastName:  "anderson",
+	// 	ContactInfo: ContactInfo{
+	// 		Email:   "alex@gmail.com",
+	// 		ZipCode: 93233,
+	// 	},
+	// }
+	// Alex.ChangeName("alexander")
+	// Alex.print()
+
+	//map
+	Mapping()
 
 }
