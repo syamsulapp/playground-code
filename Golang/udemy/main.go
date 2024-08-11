@@ -37,8 +37,7 @@ func main() {
 			ZipCode: 93233,
 		},
 	}
-	AlexPointer := &Alex
-	AlexPointer.ChangeName("alexander")
+	Alex.ChangeName("alexander")
 	Alex.print()
 
 }
