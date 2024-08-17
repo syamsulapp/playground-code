@@ -20,7 +20,15 @@ func PrintGreeting(b Bot) {
 }
 
 func PrintUrl(HandlerUrl GetUrl) {
-	fmt.Println(http.Get(HandlerUrl.GetUrlTest()))
+	// fmt.Println(http.Get(HandlerUrl.GetUrlTest()))
+	res, err := http.Get(HandlerUrl.GetUrlTest())
+	if err != nil {
+		fmt.Println("Error", err)
+	}
+
+	bs := make([]byte, 99999)
+	res.Body.Read(bs)
+	fmt.Println(string(bs))
 }
 
 func (EnglishBot) GetGreeting() string {

@@ -34,5 +34,13 @@ func (PointerChangingUrl *StoreUrl) ChangeUrl(NewUrl string) {
 }
 
 func (HandlerUrl StoreUrl) PrintResponseUrl() {
-	fmt.Println(http.Get(HandlerUrl.Url))
+	// fmt.Println(http.Get(HandlerUrl.Url))
+	res, err := http.Get(HandlerUrl.Url)
+	if err != nil {
+		fmt.Println("Error", err)
+	}
+
+	bs := make([]byte, 99999)
+	res.Body.Read(bs)
+	fmt.Println(string(bs))
 }
