@@ -60,9 +60,11 @@ func main() {
 	// Url.PrintResponseUrl()
 
 	//assigned interfaces
-	t := Triangle{Base: 10, Height: 10}
-	s := Square{SideLength: 10}
+	// t := Triangle{Base: 10, Height: 10}
+	// s := Square{SideLength: 10}
 
-	PrintArea(t)
-	PrintArea(s)
+	// PrintArea(t)
+	// PrintArea(s)
+
+	ListUrl()
 }
