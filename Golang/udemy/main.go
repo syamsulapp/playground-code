@@ -50,8 +50,8 @@ func main() {
 	// PrintGreeting(eb)
 	// PrintGreeting(sb)
 
-	url := HitUrl{}
-	PrintUrl(url)
+	// url := HitUrl{}
+	// PrintUrl(url)
 
 	// Url := StoreUrl{
 	// 	Url: "https://www.google.com",
@@ -59,4 +59,10 @@ func main() {
 	// Url.ChangeUrl("https://ecif.eng.ui.ac.id")
 	// Url.PrintResponseUrl()
 
+	//assigned interfaces
+	t := Triangle{Base: 10, Height: 10}
+	s := Square{SideLength: 10}
+
+	PrintArea(t)
+	PrintArea(s)
 }
