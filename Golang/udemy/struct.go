@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 )
 
@@ -20,6 +21,8 @@ type ContactInfo struct {
 type StoreUrl struct {
 	Url string
 }
+
+type LogUrl struct{}
 
 func (PointerToPerson *Person) ChangeName(NewFirstName string) {
 	(*PointerToPerson).FirstName = NewFirstName
@@ -40,7 +43,12 @@ func (HandlerUrl StoreUrl) PrintResponseUrl() {
 		fmt.Println("Error", err)
 	}
 
-	bs := make([]byte, 99999)
-	res.Body.Read(bs)
+	lu := LogUrl{}
+	io.Copy(lu, res.Body)
+}
+
+func (LogUrl) Write(bs []byte) (int, error) {
 	fmt.Println(string(bs))
+	fmt.Println("Just wrote this many bytes:", len(bs))
+	return len(bs), nil
 }

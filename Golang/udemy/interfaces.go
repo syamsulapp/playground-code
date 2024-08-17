@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 )
 
@@ -26,9 +27,8 @@ func PrintUrl(HandlerUrl GetUrl) {
 		fmt.Println("Error", err)
 	}
 
-	bs := make([]byte, 99999)
-	res.Body.Read(bs)
-	fmt.Println(string(bs))
+	lu := LogUrl{}
+	io.Copy(lu, res.Body)
 }
 
 func (EnglishBot) GetGreeting() string {
