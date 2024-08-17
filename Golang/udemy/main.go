@@ -41,6 +41,15 @@ func main() {
 	// Alex.print()
 
 	//map
-	Mapping()
+	// Mapping()
 
+	//interfaces
+	// eb := EnglishBot{}
+	// sb := SpanishBot{}
+
+	// PrintGreeting(eb)
+	// PrintGreeting(sb)
+
+	url := HitUrl{}
+	PrintUrl(url)
 }
