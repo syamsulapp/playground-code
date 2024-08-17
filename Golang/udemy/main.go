@@ -50,6 +50,13 @@ func main() {
 	// PrintGreeting(eb)
 	// PrintGreeting(sb)
 
-	url := HitUrl{}
-	PrintUrl(url)
+	// url := HitUrl{}
+	// PrintUrl(url)
+
+	Url := StoreUrl{
+		Url: "https://www.google.com",
+	}
+	Url.ChangeUrl("https://ecif.eng.ui.ac.id")
+	Url.PrintResponseUrl()
+
 }
