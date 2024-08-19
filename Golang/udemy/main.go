@@ -50,8 +50,10 @@ func main() {
 	// PrintGreeting(eb)
 	// PrintGreeting(sb)
 
-	// url := HitUrl{}
-	// PrintUrl(url)
+	//interfaces with struct of update url
+	url := HitUrl{Url: "https://ecif.eng.ui.ac.id"}
+	// url.UpdateUrl("https://www.google.com")
+	PrintUrl(url)
 
 	// Url := StoreUrl{
 	// 	Url: "https://www.google.com",
@@ -66,5 +68,7 @@ func main() {
 	// PrintArea(t)
 	// PrintArea(s)
 
-	ListUrl()
+	//channel and go routine
+	// ListUrl()
+
 }

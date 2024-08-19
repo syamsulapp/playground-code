@@ -14,7 +14,9 @@ type GetUrl interface {
 }
 type EnglishBot struct{}
 type SpanishBot struct{}
-type HitUrl struct{}
+type HitUrl struct {
+	Url string
+}
 
 func PrintGreeting(b Bot) {
 	fmt.Println(b.GetGreeting())
@@ -40,5 +42,9 @@ func (sb SpanishBot) GetGreeting() string {
 }
 
 func (HandlerUrl HitUrl) GetUrlTest() string {
-	return "https://www.google.com"
+	return HandlerUrl.Url
+}
+
+func (HandlerUrl *HitUrl) UpdateUrl(NewUrl string) {
+	(*HandlerUrl).Url = NewUrl
 }
