@@ -22,6 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //list employee
 Route::get('list-employee', [ApiController::class, 'ListEmployee']);
 
+//detail employee
+Route::get('detail-employee/{EmployeeID}', [ApiController::class, 'DetailEmployee']);
+
 //add employee
 Route::post('add-employee', [ApiController::class, 'AddEmployee']);
 

@@ -45,7 +45,15 @@ class ApiController extends Controller
     }
 
     //detail detail
-    public function DetailEmployee($EmployeeID) {}
+    public function DetailEmployee($EmployeeID)
+    {
+        $Employee = new Employee();
+        if (!$Employee->where('id', $EmployeeID)->exists()) {
+            return $this->Response($Employee, 'No data employee', 422, false);
+        } else {
+            return $this->Response($Employee->find($EmployeeID), 'Found Employees');
+        }
+    }
 
     //update detail
     public function UpdateEmployee($EmployeeID) {}
