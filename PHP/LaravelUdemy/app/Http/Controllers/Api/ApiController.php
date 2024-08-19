@@ -19,7 +19,6 @@ class ApiController extends Controller
             'age' => 'required|integer',
             'gender' => 'required|in:male,female,other',
         ]);
-
         if ($Validate->fails()) {
             return $this->Response($Validate->errors(), 'Data Tidak Lengkap', 422, false);
         }
@@ -29,8 +28,6 @@ class ApiController extends Controller
         $Employee->email = $request->email;
         $Employee->phone_number = $request->phone_number;
         $Employee->age = $request->age;
-
-
         return $this->Response($Employee, 'Berhasil Create Data Employee');
     }
 
