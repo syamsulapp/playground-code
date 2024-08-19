@@ -29,7 +29,7 @@ Route::get('detail-employee/{EmployeeID}', [ApiController::class, 'DetailEmploye
 Route::post('add-employee', [ApiController::class, 'AddEmployee']);
 
 //add employee
-Route::put('update-employee', [ApiController::class, 'UpdateEmployee']);
+Route::put('update-employee/{EmployeeID}', [ApiController::class, 'UpdateEmployee']);
 
 //add employee
 Route::delete('delete-employee', [ApiController::class, 'DeleteEmployee']);

@@ -20,7 +20,7 @@ class ApiController extends Controller
             'gender' => 'required|in:male,female,other',
         ]);
         if ($Validate->fails()) {
-            return $this->Response($Validate->errors(), 'Data Tidak Lengkap', 422, false);
+            return $this->Response($Validate, $Validate->errors(), 422, false);
         }
 
         $Employee = new Employee(); //instance model
@@ -64,12 +64,14 @@ class ApiController extends Controller
         if (!$Employee->where('id', $EmployeeID)->exists()) {
             return $this->Response($Employee, 'No data employee', 422, false);
         } else {
-            $Employee->name = $request->name ? $request->name : $Employee->name;
-            $Employee->email = $request->email ? $request->email : $Employee->email;
-            $Employee->phone_number = $request->phone_number ? $request->phone_number : $Employee->phone_number;
-            $Employee->age = $request->age ? $request->age : $Employee->age;
-            $Employee->save();
-            return $this->Response($Employee, 'Berhasil Update Data Employee');
+            $UpdateEmployee = $Employee->find($EmployeeID);
+            $UpdateEmployee->name = $request->name ? $request->name : $UpdateEmployee->name;
+            $UpdateEmployee->email = $request->email ? $request->email : $UpdateEmployee->email;
+            $UpdateEmployee->phone_number = $request->phone_number ? $request->phone_number : $UpdateEmployee->phone_number;
+            $UpdateEmployee->age = $request->age ? $request->age : $UpdateEmployee->age;
+            $UpdateEmployee->gender = $request->gender ? $request->gender : $UpdateEmployee->gender;
+            $UpdateEmployee->save();
+            return $this->Response($request->all(), 'Berhasil Update Data Employee');
         }
     }
 
