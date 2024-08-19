@@ -14,7 +14,7 @@ class Controller extends BaseController
     protected static function Response($Data = 'No Data', string $Message = 'No Message', int $Code = 200,  $Status = true)
     {
         if ($Code != 200 || $Status != true) {
-            $Res = array('status' => $Status, 'message' => $Message);
+            $Res = array('status' => $Status, 'message' => $Data);
         } else {
             $Res = array('status' => $Status, 'message' => $Message, 'data' => $Data);
         }

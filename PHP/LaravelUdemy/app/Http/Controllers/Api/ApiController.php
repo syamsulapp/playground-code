@@ -28,6 +28,8 @@ class ApiController extends Controller
         $Employee->email = $request->email;
         $Employee->phone_number = $request->phone_number;
         $Employee->age = $request->age;
+        $Employee->gender = $request->gender;
+        $Employee->save();
         return $this->Response($Employee, 'Berhasil Create Data Employee');
     }
 
@@ -56,7 +58,20 @@ class ApiController extends Controller
     }
 
     //update detail
-    public function UpdateEmployee($EmployeeID) {}
+    public function UpdateEmployee($EmployeeID, Request $request)
+    {
+        $Employee = new Employee();
+        if (!$Employee->where('id', $EmployeeID)->exists()) {
+            return $this->Response($Employee, 'No data employee', 422, false);
+        } else {
+            $Employee->name = $request->name ? $request->name : $Employee->name;
+            $Employee->email = $request->email ? $request->email : $Employee->email;
+            $Employee->phone_number = $request->phone_number ? $request->phone_number : $Employee->phone_number;
+            $Employee->age = $request->age ? $request->age : $Employee->age;
+            $Employee->save();
+            return $this->Response($Employee, 'Berhasil Update Data Employee');
+        }
+    }
 
     //delete detail
     public function DeleteEmployee($EmployeeID) {}
