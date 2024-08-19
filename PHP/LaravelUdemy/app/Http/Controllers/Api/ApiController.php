@@ -33,7 +33,16 @@ class ApiController extends Controller
 
 
     //list employee
-    public function ListEmployee() {}
+    public function ListEmployee()
+    {
+        $Employee = new Employee();
+        if (!empty($Employee)) {
+            $ListEmployees = $Employee->all();
+        } else {
+            $ListEmployees = 'Data Employee tidak di temukan';
+        }
+        return $this->Response($ListEmployees, 'Data Employee Di Temukan');
+    }
 
     //detail detail
     public function DetailEmployee($EmployeeID) {}
