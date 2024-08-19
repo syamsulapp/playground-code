@@ -50,7 +50,9 @@ class ApiController extends Controller
     public function DetailEmployee($EmployeeID)
     {
         $Employee = new Employee();
-        if (!$Employee->where('id', $EmployeeID)->exists()) {
+        if (!$Employee
+            ->where('id', $EmployeeID)
+            ->exists()) {
             return $this->Response($Employee, 'No data employee', 422, false);
         } else {
             return $this->Response($Employee->find($EmployeeID), 'Found Employees');
@@ -61,7 +63,9 @@ class ApiController extends Controller
     public function UpdateEmployee($EmployeeID, Request $request)
     {
         $Employee = new Employee();
-        if (!$Employee->where('id', $EmployeeID)->exists()) {
+        if (!$Employee
+            ->where('id', $EmployeeID)
+            ->exists()) {
             return $this->Response($Employee, 'No data employee', 422, false);
         } else {
             $UpdateEmployee = $Employee->find($EmployeeID);
