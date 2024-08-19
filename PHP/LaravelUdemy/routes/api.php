@@ -32,4 +32,4 @@ Route::post('add-employee', [ApiController::class, 'AddEmployee']);
 Route::put('update-employee/{EmployeeID}', [ApiController::class, 'UpdateEmployee']);
 
 //add employee
-Route::delete('delete-employee', [ApiController::class, 'DeleteEmployee']);
+Route::delete('delete-employee/{EmployeeID}', [ApiController::class, 'DeleteEmployee']);

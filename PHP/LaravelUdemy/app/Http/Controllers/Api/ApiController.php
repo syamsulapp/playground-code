@@ -80,5 +80,17 @@ class ApiController extends Controller
     }
 
     //delete detail
-    public function DeleteEmployee($EmployeeID) {}
+    public function DeleteEmployee($EmployeeID)
+    {
+        $Employee = new Employee();
+        if (!$Employee
+            ->where('id', $EmployeeID)
+            ->exists()) {
+            return $this->Response($Employee, 'No data employee', 422, false);
+        } else {
+            $DeleteEmployee = $Employee->find($EmployeeID);
+            $DeleteEmployee->delete();
+            return $this->Response($DeleteEmployee, 'Berhasil Delete Data Employee');
+        }
+    }
 }
