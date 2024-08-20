@@ -34,7 +34,7 @@ class CourseController extends Controller
     {
         $Course = new Course();
         if (isset($Course)) {
-            $ListCourse = $Course->all();
+            $ListCourse = $Course->with('user')->where('users_id', Auth::guard('api')->user()->id)->get();
             return $this->Response($ListCourse, 'Data Course Di Temukan');
         } else {
             $ListCourse = 'Data course tidak di temukan';
