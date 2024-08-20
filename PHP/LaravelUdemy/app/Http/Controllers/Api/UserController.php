@@ -7,10 +7,31 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
-    public function Login() {}
+    public function Login(Request $request)
+    {
+
+        $Validate = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+        if ($Validate->fails()) {
+            return $this->Response($Validate, $Validate->errors(), 422, false);
+        }
+
+        $Token = JWTAuth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+        if (!empty($Token)) {
+            return $this->Response($Token, 'Berhasil Login');
+        } else {
+            return $this->Response($Token, 'Email atau password salah', 422, false);
+        }
+    }
 
     public function Register(Request $request)
     {
