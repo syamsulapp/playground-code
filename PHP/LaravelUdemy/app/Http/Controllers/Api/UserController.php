@@ -62,5 +62,9 @@ class UserController extends Controller
         return $this->Response(Auth::guard('api')->user(), 'Get Data Profile Successfully');
     }
 
-    public function TokenRefresh() {}
+    public function TokenRefresh()
+    {
+        $TokenRefresh = Auth::guard('api')->refresh();
+        return $this->Response($TokenRefresh, 'Successfully Refresh Token');
+    }
 }
