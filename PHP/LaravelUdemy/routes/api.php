@@ -36,7 +36,7 @@ Route::put('update-employee/{EmployeeID}', [ApiController::class, 'UpdateEmploye
 //add employee
 Route::delete('delete-employee/{EmployeeID}', [ApiController::class, 'DeleteEmployee']);
 
-Route::prefix('users')->group(function () {
+Route::prefix('user')->group(function () {
     //user login,register
     Route::post('login', [UserController::class, 'Login']);
     Route::post('register', [UserController::class, 'Register']);
