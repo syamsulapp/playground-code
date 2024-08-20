@@ -51,7 +51,7 @@ Route::prefix('user')->group(function () {
         Route::prefix('course')->group(function () {
             Route::get('/', [CourseController::class, 'ListCourse']);
             Route::post('enroll', [CourseController::class, 'CourseEnroll']);
-            Route::post('delete/{DeleteCourseID}', [CourseController::class, 'DeleteCourse']);
+            Route::delete('delete/{DeleteCourseID}', [CourseController::class, 'DeleteCourse']);
         });
     });
 });
