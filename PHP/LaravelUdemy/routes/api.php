@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +35,23 @@ Route::put('update-employee/{EmployeeID}', [ApiController::class, 'UpdateEmploye
 
 //add employee
 Route::delete('delete-employee/{EmployeeID}', [ApiController::class, 'DeleteEmployee']);
+
+Route::prefix('users')->group(function () {
+    //user login,register
+    Route::post('login', [UserController::class, 'Login']);
+    Route::post('register', [UserController::class, 'Register']);
+
+    Route::middleware('auth:api')->group(function () {
+        //user logout,profile,refresh token
+        Route::post('logout', [UserController::class, 'Logout']);
+        Route::post('profile', [UserController::class, 'Profile']);
+        Route::post('refresh-token', [UserController::class, 'TokenRefresh']);
+
+        //enroll course by users
+        Route::prefix('course')->group(function () {
+            Route::get('/', [CourseController::class, 'ListCourse']);
+            Route::post('enroll', [CourseController::class, 'CourseEnroll']);
+            Route::post('delete/{DeleteCourseID}', [CourseController::class, 'DeleteCourse']);
+        });
+    });
+});

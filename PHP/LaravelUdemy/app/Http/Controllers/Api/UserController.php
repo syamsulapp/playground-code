@@ -14,4 +14,6 @@ class UserController extends Controller
     public function Logout() {}
 
     public function Profile() {}
+
+    public function TokenRefresh() {}
 }
