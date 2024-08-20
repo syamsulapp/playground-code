@@ -59,7 +59,7 @@ class UserController extends Controller
 
     public function Profile()
     {
-        return Auth::guard('api')->user();
+        return $this->Response(Auth::guard('api')->user(), 'Get Data Profile Successfully');
     }
 
     public function TokenRefresh() {}
