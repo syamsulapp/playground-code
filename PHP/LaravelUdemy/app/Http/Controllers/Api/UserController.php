@@ -55,7 +55,11 @@ class UserController extends Controller
         return $this->Response($Employee, 'Berhasil Create User');
     }
 
-    public function Logout() {}
+    public function Logout()
+    {
+        $User = Auth::guard('api')->logout();
+        return $this->Response($User, 'Successfully Logout Users');
+    }
 
     public function Profile()
     {
