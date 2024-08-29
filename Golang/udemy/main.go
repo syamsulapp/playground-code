@@ -88,16 +88,16 @@ func main() {
 
 	tc := InputOfTypeCalculator{x: x, y: y}
 	switch tipe {
-	case "penjumlahan":
+	case "+":
 		PrintPenjumlahan(tc)
 		break
-	case "pengurangan":
+	case "-":
 		PrintPengurangan(tc)
 		break
-	case "perkalian":
+	case "*":
 		PrintPerkalian(tc)
 		break
-	case "pembagian":
+	case "/":
 		PrintPembagian(tc)
 		break
 	}
