@@ -31,5 +31,17 @@ func (HandleInput InputOfTypeCalculator) Pembagian() int {
 }
 
 func PrintPenjumlahan(HandleTypeCalculator TypeCalculator) {
-	fmt.Println(HandleTypeCalculator.Penjumlahan())
+	fmt.Println("Hasil Penjumlahan:", HandleTypeCalculator.Penjumlahan())
+}
+
+func PrintPengurangan(HandleTypeCalculator TypeCalculator) {
+	fmt.Println("Hasil Pengurangan:", HandleTypeCalculator.Pengurangan())
+}
+
+func PrintPembagian(HandleTypeCalculator TypeCalculator) {
+	fmt.Println("Hasil Pembagian:", HandleTypeCalculator.Pembagian())
+}
+
+func PrintPerkalian(HandleTypeCalculator TypeCalculator) {
+	fmt.Println("Hasil Perkalian:", HandleTypeCalculator.Perkalian())
 }

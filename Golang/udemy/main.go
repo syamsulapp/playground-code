@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	//save file
 	// cards := newDeck()
@@ -51,9 +53,9 @@ func main() {
 	// PrintGreeting(sb)
 
 	//interfaces with struct of update url
-	url := HitUrl{Url: "https://ecif.eng.ui.ac.id"}
+	// url := HitUrl{Url: "https://ecif.eng.ui.ac.id"}
 	// url.UpdateUrl("https://www.google.com")
-	PrintUrl(url)
+	// PrintUrl(url)
 
 	// Url := StoreUrl{
 	// 	Url: "https://www.google.com",
@@ -70,5 +72,34 @@ func main() {
 
 	//channel and go routine
 	// ListUrl()
+
+	//project calculator
+	var (
+		x    int
+		y    int
+		tipe string
+	)
+	fmt.Print("masukan nilai x:")
+	fmt.Scan(&x)
+	fmt.Print("masukan nilai y:")
+	fmt.Scan(&y)
+	fmt.Print("masukan tipe calculator:")
+	fmt.Scan(&tipe)
+
+	tc := InputOfTypeCalculator{x: x, y: y}
+	switch tipe {
+	case "penjumlahan":
+		PrintPenjumlahan(tc)
+		break
+	case "pengurangan":
+		PrintPengurangan(tc)
+		break
+	case "perkalian":
+		PrintPerkalian(tc)
+		break
+	case "pembagian":
+		PrintPembagian(tc)
+		break
+	}
 
 }
