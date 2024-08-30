@@ -100,6 +100,12 @@ func main() {
 	case "/":
 		PrintPembagian(tc)
 		break
+	default:
+		fmt.Print(GetMessageErrorOutsideTypeCalculator())
+		break
 	}
 
+}
+func GetMessageErrorOutsideTypeCalculator() string {
+	return "Tipe calculator tidak di temukan"
 }
